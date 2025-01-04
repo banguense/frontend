@@ -1,33 +1,31 @@
-// Lista de resultados, pode ser substituída por uma resposta de API ou outro dado dinâmico
-const resultados = [
+const results = [
   {
     id: 1,
-    titulo: "Resultado 1",
-    conteudo: "Este é o conteúdo do resultado 1.",
+    title: "Resultado 1",
+    content: "Este é o conteúdo do resultado 1.",
   },
   {
     id: 2,
-    titulo: "Resultado 2",
-    conteudo: "Este é o conteúdo do resultado 2.",
+    title: "Resultado 2",
+    content: "Este é o conteúdo do resultado 2.",
   },
   {
     id: 3,
-    titulo: "Resultado 3",
-    conteudo: "Este é o conteúdo do resultado 3.",
+    title: "Resultado 3",
+    content: "Este é o conteúdo do resultado 3.",
   },
   {
     id: 4,
-    titulo: "Resultado 4",
-    conteudo: "Este é o conteúdo do resultado 4.",
+    title: "Resultado 4",
+    content: "Este é o conteúdo do resultado 4.",
   },
 ];
 
-// Função para criar os resultados dinamicamente
-function gerarResultados() {
-  const resultadosContainer = document.getElementById("resultados-container");
-  resultados.forEach((resultado) => {
-    const divResultado = document.createElement("div");
-    divResultado.classList.add(
+function getResults() {
+  const resultsContainer = document.getElementById("results-container");
+  results.forEach((result) => {
+    const divResult = document.createElement("div");
+    divResult.classList.add(
       "p-6",
       "bg-white",
       "rounded-lg",
@@ -36,36 +34,33 @@ function gerarResultados() {
       "transition-shadow",
       "space-y-4",
     );
-    divResultado.innerHTML = `
-                    <h2 class="text-xl text-gray-900 cursor-pointer" onclick="toggleConteudo(${resultado.id})">${resultado.titulo}</h2>
-                    <div id="conteudo-${resultado.id}" class="hidden">
-                        <p class="text-gray-700">${resultado.conteudo}</p>
-                        <button class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" onclick="baixarResultado(${resultado.id})">
+    divResult.innerHTML = `
+                    <h2 class="text-xl text-gray-900 cursor-pointer" onclick="toggleConteudo(${result.id})">${result.title}</h2>
+                    <div id="content-${result.id}" class="hidden">
+                        <p class="text-gray-700">${result.content}</p>
+                        <button class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" onclick="baixarResultado(${result.id})">
                             Baixar
                         </button>
                     </div>
                 `;
-    resultadosContainer.appendChild(divResultado);
+    resultsContainer.appendChild(divResult);
   });
 }
 
-// Função para alternar a visibilidade do conteúdo
 function toggleConteudo(id) {
-  const conteudo = document.getElementById(`conteudo-${id}`);
-  conteudo.classList.toggle("hidden");
+  const content = document.getElementById(`content-${id}`);
+  content.classList.toggle("hidden");
 }
 
-// Função para baixar o resultado como arquivo .txt
-function baixarResultado(id) {
-  const resultado = resultados.find((r) => r.id === id);
-  const blob = new Blob([resultado.conteudo], { type: "text/plain" });
+function downloadResult(id) {
+  const result = results.find((r) => r.id === id);
+  const blob = new Blob([result.content], { type: "text/plain" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
   a.download = `resultado_${id}.txt`;
   a.click();
-  URL.revokeObjectURL(url); // Limpar o objeto URL após o download
+  URL.revokeObjectURL(url);
 }
 
-// Gerar os resultados assim que a página for carregada
-window.onload = gerarResultados;
+window.onload = getResults;
