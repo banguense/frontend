@@ -6,25 +6,7 @@
     <title>Editor de Código C</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.37.0/min/vs/loader.js"></script>
-    <script>
-        // Configurar a carga do Monaco Editor corretamente
-        require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.37.0/min/vs' }});
 
-        let editor;
-        require(['vs/editor/editor.main'], function() {
-            editor = monaco.editor.create(document.getElementById('editor'), {
-                value: '// Digite seu código em C aqui\n',
-                language: 'c',
-                theme: 'vs-light',
-                minimap: { enabled: false }
-            });
-
-            // Chama o layout sempre que a janela for redimensionada
-            window.addEventListener('resize', function() {
-                editor.layout();
-            });
-        });
-    </script>
 </head>
 <body class="bg-gray-100">
     <div class="max-w-7xl mx-auto p-4">
@@ -50,34 +32,15 @@
                     <input type="number" min="0" value="0" max="5" class="w-20 px-3 py-1 border rounded">
                 </div>
 
-                <button id="submitBtn" class="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
-                    Enviar
+                <button id="submitBtn" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 flex transition-colors">
+                    <span>Enviar</span>
+                    <div id="spinner" class="hidden ml-2 w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                 </button>
             </div>
         </div>
     </div>
 
-    <script>
-        document.getElementById('submitBtn').addEventListener('click', async () => {
-            const btn = document.getElementById('submitBtn');
-            const originalText = btn.textContent;
-            
-            try {
-                btn.textContent = 'Enviando...';
-                btn.disabled = true;
-                
-                // Simular envio
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                
-                alert('Código enviado com sucesso!');
-            } catch (error) {
-                alert('Erro ao enviar código');
-            } finally {
-                btn.textContent = originalText;
-                btn.disabled = false;
-            }
-        });
-    </script>
+    <script src="./script.js"></script>
 </body>
 </html>
 
