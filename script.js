@@ -4,8 +4,11 @@ require.config({
 
 let editor;
 require(["vs/editor/editor.main"], function () {
+  const savedCode = localStorage.getItem("savedCode");
+  const initialValue = savedCode ? savedCode : "// Digite seu código em MPI aqui\n";
+
   editor = monaco.editor.create(document.getElementById("editor"), {
-    value: "// Digite seu código em MPI aqui\n",
+    value: initialValue,
     language: "c",
     theme: "vs-light",
     minimap: { enabled: false },
@@ -33,6 +36,7 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
     spinner.classList.remove("hidden");
 
     const code = editor.getValue();
+    localStorage.setItem("savedCode", code);
 
     const data = {
       numberOfWorkers: parseInt(numberOfWorkers),
