@@ -9,7 +9,7 @@ function getResults() {
     return;
   }
 
-  results.forEach((result) => {
+  results.reverse().forEach((result) => {
     const divResult = document.createElement("div");
     divResult.classList.add(
       "p-6",
