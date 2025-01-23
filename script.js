@@ -20,13 +20,13 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
   const btn = document.getElementById("submitBtn");
 
   if (btn.textContent.trim() === "Resultado") {
-    window.location.href = "/resultados";
+    window.location.href = "/pages/resultados";
     return;
   }
 
   const spinner = document.getElementById("spinner");
   const numberOfWorkers = document.getElementById("numberOfWorkers").value;
-  // const numberOfProcess = document.getElementById("numberOfProcess").value;
+  const numberOfProcess = document.getElementById("numberOfProcess").value;
 
   try {
     btn.disabled = true;
@@ -36,7 +36,7 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
 
     const data = {
       numberOfWorkers: parseInt(numberOfWorkers),
-      numberOfProcess: parseInt(numberOfWorkers),
+      numberOfProcess: parseInt(numberOfProcess),
       code: code,
     };
     const response = await fetch("/api/run", {
