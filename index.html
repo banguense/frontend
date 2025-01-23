@@ -14,7 +14,7 @@
             <ul class="flex space-x-8">
                 <li><a href="#" class="py-2 border-b-2 border-blue-500 font-medium">Início</a></li>
                 <li><a href="./pages/resultados/" class="py-2 hover:border-b-2 hover:border-blue-500">Resultados</a></li>
-                <li><a href="./pages/avancado/" class="py-2 hover:border-b-2 hover:border-blue-500">Avançado</a></li>
+                <!-- <li><a href="./pages/avancado/" class="py-2 hover:border-b-2 hover:border-blue-500">Avançado</a></li> -->
             </ul>
         </nav>
 
@@ -22,14 +22,9 @@
             <div id="editor" class="w-full h-[calc(100vh-200px)] mb-4 border rounded"></div>
             
             <div class="flex items-center justify-end space-x-4">
-                <div class="flex items-center ml-2">
-                    <label class="mr-2 text-sm">Número de processos:</label>
-                    <input type="number" min="0" value="0" max="5" class="w-20 px-3 py-1 border rounded">
-                </div>
-
                 <div class="flex items-center">
                     <label class="mr-2 text-sm">Número de contêineres:</label>
-                    <input type="number" min="0" value="0" max="5" class="w-20 px-3 py-1 border rounded">
+                    <input id="numberOfWorkers" type="number" min="0" value="0" max="5" class="w-20 px-3 py-1 border rounded">
                 </div>
 
                 <button id="submitBtn" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 flex transition-colors">
