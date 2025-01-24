@@ -5,7 +5,11 @@ require.config({
 let editor;
 require(["vs/editor/editor.main"], function () {
   const savedCode = localStorage.getItem("savedCode");
-  const initialValue = savedCode ? savedCode : "// Digite seu código em MPI aqui\n";
+  const savedSettings = JSON.parse(localStorage.getItem("appSettings") || "{}");
+
+  const initialValue = savedCode
+    ? savedCode
+    : "// Digite seu código em MPI aqui\n";
 
   editor = monaco.editor.create(document.getElementById("editor"), {
     value: initialValue,
@@ -13,6 +17,12 @@ require(["vs/editor/editor.main"], function () {
     theme: "vs-light",
     minimap: { enabled: false },
   });
+
+  document.getElementById("numberOfWorkers").value =
+    savedSettings.numberOfWorkers || 1;
+  document.getElementById("numberOfProcess").value =
+    savedSettings.numberOfProcess || 1;
+  document.getElementById("accessKey").value = savedSettings.accessKey || "";
 
   window.addEventListener("resize", function () {
     editor.layout();
@@ -30,6 +40,9 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
   const spinner = document.getElementById("spinner");
   const numberOfWorkers = document.getElementById("numberOfWorkers").value;
   const numberOfProcess = document.getElementById("numberOfProcess").value;
+  const accessKey = document.getElementById("accessKey").value;
+
+  if (accessKey === "") throw new Error("Chave de acesso vazia");
 
   try {
     btn.disabled = true;
@@ -41,8 +54,10 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
     const data = {
       numberOfWorkers: parseInt(numberOfWorkers),
       numberOfProcess: parseInt(numberOfProcess),
+      accessKey: accessKey,
       code: code,
     };
+
     const response = await fetch("/api/run", {
       method: "POST",
       headers: {
