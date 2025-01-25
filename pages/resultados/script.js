@@ -34,7 +34,7 @@ function getResults() {
       <h2 class="text-xl text-gray-900 cursor-pointer" onclick="toggleContent('${result.id}')">
         Execução ${formattedDate}
       </h2>
-      <div id="content-${result.id}" class="${index === 0 ? "" : "hidden"}">
+      <div id="content-${result.id}" class="hidden">
         <div class="text-gray-700 space-y-2">
           <p><strong>ID:</strong> ${result.id}</p>
           <p><strong>Data:</strong> ${formattedDate}</p>
@@ -47,6 +47,7 @@ function getResults() {
     `;
     resultsContainer.appendChild(divResult);
   });
+  toggleContent(results.at(0).id);
 }
 
 function toggleContent(id) {
