@@ -37,6 +37,7 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
     const numberOfWorkers = document.getElementById("numberOfWorkers").value;
     const numberOfProcess = document.getElementById("numberOfProcess").value;
     const accessKey = document.getElementById("accessKey").value;
+    const arguments = document.getElementById("arguments").value;
     const compilationDirective =
       document.getElementById("compilationDirective").value;
 
@@ -61,6 +62,7 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
       numberOfWorkers: parseInt(numberOfWorkers),
       numberOfProcess: parseInt(numberOfProcess),
       accessKey: accessKey.trim(),
+      arguments: arguments,
       code: code,
     };
 
