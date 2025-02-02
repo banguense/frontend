@@ -37,10 +37,17 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
     const numberOfWorkers = document.getElementById("numberOfWorkers").value;
     const numberOfProcess = document.getElementById("numberOfProcess").value;
     const accessKey = document.getElementById("accessKey").value;
+    const compilationDirective =
+      document.getElementById("compilationDirective").value;
 
     btn.disabled = true;
     btn.textContent = "Enviando...";
-    btn.classList.remove("bg-red-500", "hover:bg-red-600", "bg-green-500", "hover:bg-green-600");
+    btn.classList.remove(
+      "bg-red-500",
+      "hover:bg-red-600",
+      "bg-green-500",
+      "hover:bg-green-600",
+    );
     btn.classList.add("bg-blue-500", "hover:bg-blue-600");
     if (spinner) spinner.classList.remove("hidden");
 
@@ -50,6 +57,7 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
     if (!accessKey.trim()) throw new Error("Chave de acesso vazia");
 
     const data = {
+      compilationDirective: compilationDirective,
       numberOfWorkers: parseInt(numberOfWorkers),
       numberOfProcess: parseInt(numberOfProcess),
       accessKey: accessKey.trim(),
@@ -97,4 +105,3 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
     btn.disabled = false;
   }
 });
-
