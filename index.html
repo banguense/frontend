@@ -20,7 +20,28 @@
 
         <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
             <h2 class="text-xl font-semibold mb-4">Instruções de Uso</h2>
-            <p class="text-gray-700"></p>
+            <p class="text-gray-700">
+            <div class="text-gray-700 space-y-4">
+              <p>
+                Caso precise, utilize o campo <strong>Diretivas de compilação</strong> para informar opções que seriam passadas para o compilador via terminal.
+                Essas diretivas podem incluir flags para a inclusão de bibliotecas ou outras opções específicas. 
+              </p>
+              <p class="bg-gray-100 p-3 rounded">
+                <strong>Exemplo de compilação:</strong><br>
+                Se você estiver compilando um programa em C que precisa da biblioteca matemática, poderá enviar essa diretiva no campo de <strong>Diretivas de compilação</strong>:
+                <br>
+                <code>mpicc -o meuPrograma arquivo.c -lm</code>
+              </p>
+              <p>
+                Em seguida, utilize o campo <strong>Argumentos</strong> para inserir os parâmetros que serão passados para o programa durante a sua execução.
+              </p>
+              <p class="bg-gray-100 p-3 rounded">
+                <strong>Exemplo de execução:</strong><br>
+                Após a compilação, para executar o programa passando argumentos, utilize:
+                <br>
+                <code>./meuPrograma arg1 arg2 arg3</code>
+              </p>
+            </div>
         </div>
 
         <div class="bg-white rounded-lg shadow-sm p-4 h-full min-w-[400px]">
