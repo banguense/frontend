@@ -5,12 +5,12 @@ require.config({
   let cEditor, makefileEditor;
   
   require(["vs/editor/editor.main"], function () {
-	cEditor = monaco.editor.create(document.getElementById("cEditor"), {
-	  value: "// Digite seu código em C aqui\n",
-	  language: "c",
-	  theme: "vs-light",
-	  minimap: { enabled: false },
-	});
+	// cEditor = monaco.editor.create(document.getElementById("cEditor"), {
+	//   value: "// Digite seu código em C aqui\n",
+	//   language: "c",
+	//   theme: "vs-light",
+	//   minimap: { enabled: false },
+	// });
   
 	makefileEditor = monaco.editor.create(
 	  document.getElementById("makefileEditor"),
@@ -23,7 +23,7 @@ require.config({
 	);
   
 	window.addEventListener("resize", function () {
-	  cEditor.layout();
+	  // cEditor.layout();
 	  makefileEditor.layout();
 	});
   });
@@ -43,23 +43,23 @@ require.config({
 	if (spinner) spinner.classList.remove("hidden");
   
 	try {
-	  const cCode = cEditor.getValue();
+	  // const cCode = cEditor.getValue();
 	  const makefileCode = makefileEditor.getValue();
   
 	  const data = {
 		numberOfWorkers: parseInt(numberOfWorkers),
 		accessKey: accessKey.trim(),
-		code: cCode,
+		// code: cCode,
 		makefile: makefileCode,
 	  };
   
-	  const response = await fetch("/api/makefile", {
-		method: "POST",
-		headers: {
-		  "Content-Type": "application/json",
-		},
-		body: JSON.stringify(data),
-	  });
+		//  const response = await fetch("/api/makefile", {
+		// method: "POST",
+		// headers: {
+		//   "Content-Type": "application/json",
+		// },
+		// body: JSON.stringify(data),
+		//  });
   
 	  if (!response.ok) throw new Error("Erro na execução");
   
