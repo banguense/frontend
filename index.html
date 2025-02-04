@@ -33,14 +33,17 @@
                 <code>mpicc -o meuPrograma arquivo.c -lm</code>
               </p>
               <p>
-                Em seguida, utilize o campo <strong>Argumentos</strong> para inserir os parâmetros que serão passados para o programa durante a sua execução.
+                Utilize o campo <strong>Argumentos</strong> para inserir os parâmetros que serão passados para o programa durante a sua execução.
               </p>
               <p class="bg-gray-100 p-3 rounded">
                 <strong>Exemplo de execução:</strong><br>
-                Após a compilação, para executar o programa passando argumentos, utilize:
+                Se sua execução acontece dessa forma, utilize os argumentos no campo <strong>Argumentos</strong>:
                 <br>
                 <code>./meuPrograma arg1 arg2 arg3</code>
               </p>
+			  <p>
+				A <strong>Chave de acesso</strong> é um código que você deve inserir para acessar o serviço de execução de código. Ela será disponibilizada pelo professor.
+			  </p>
             </div>
         </div>
 
@@ -48,11 +51,11 @@
             <div class="flex items-center justify-between mb-4 gap-2"> 
               <div class="flex items-center flex-1">
                 <label class="mr-2 text-sm whitespace-nowrap">Diretivas de compilação:</label>
-                <input id="compilationDirective" type="text" class="px-3 py-1 border rounded w-full">
+                <input id="compilationDirective" type="text" class="px-3 py-1 border rounded w-full" placeholder="-lm">
               </div>
               <div class="flex items-center flex-1">
                 <label class="mr-2 text-sm whitespace-nowrap">Argumentos:</label>
-                <input id="arguments" type="text" class="px-3 py-1 border rounded w-full">
+                <input id="arguments" type="text" class="px-3 py-1 border rounded w-full" placeholder="arg1 arg2 arg3">
               </div>
             </div>
 
