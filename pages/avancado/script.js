@@ -90,3 +90,10 @@ require.config({
 		btn.disabled = false;
 	  }
   });
+
+function updateFileCount() {
+	const fileUpload = document.getElementById('fileUpload');
+	const fileCount = document.getElementById('fileCount');
+	const count = fileUpload.files.length;
+	fileCount.textContent = count > 0 ? `${count} arquivo(s) selecionado(s)` : '';
+}
