@@ -38,7 +38,7 @@ function getResults() {
         <div class="text-gray-700 space-y-2">
           <p><strong>ID:</strong> ${result.id}</p>
           <p><strong>Data:</strong> ${formattedDate}</p>
-          <pre class="bg-gray-50 p-4 rounded">${result.output}</pre>
+          <pre class="bg-gray-50 p-4 rounded max-h-64 overflow-auto whitespace-pre-wrap break-words">${result.output}</pre>
         </div>
         <button class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" onclick="downloadResult('${result.id}')">
           Baixar
