@@ -86,6 +86,9 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
     storedResults.push({
       id: result.id,
       output: result.output,
+      numberOfWorkers: result.numberOfWorkers,
+      numberOfProcess: data.numberOfProcess,
+      elapsedTime: result.elapsedTime,
       timestamp: new Date().toISOString(),
     });
     localStorage.setItem("results", JSON.stringify(storedResults));

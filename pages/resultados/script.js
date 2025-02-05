@@ -39,7 +39,8 @@ function getResults() {
           <p><strong>ID:</strong> ${result.id}</p>
           <p><strong>Data:</strong> ${formattedDate}</p>
           <p><strong>Número de Contêineres:</strong> ${result.numberOfWorkers}</p>
-          <p><strong>Tempo de Execução:</strong> ${result.elapsedTime}</p>
+          <p><strong>Número de Processos:</strong> ${result.numberOfProcess}</p>
+          <p><strong>Tempo de Execução:</strong> ${result.elapsedTime} segundos</p>
           <pre class="bg-gray-50 p-4 rounded max-h-64 overflow-auto whitespace-pre-wrap break-words">${result.output}</pre>
         </div>
         <button class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" onclick="downloadResult('${result.id}')">
