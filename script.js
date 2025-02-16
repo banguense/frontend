@@ -66,7 +66,7 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
       code: code,
     };
 
-    const response = await fetch("/api/run", {
+    const response = await fetch("/api/runAsync", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -90,6 +90,7 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
       numberOfProcess: data.numberOfProcess,
       elapsedTime: result.elapsedTime,
       timestamp: new Date().toISOString(),
+      status: result.status,
     });
     localStorage.setItem("results", JSON.stringify(storedResults));
 
