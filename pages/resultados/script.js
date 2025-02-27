@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Erro ao verificar o status:", error);
         clearInterval(interval);
       }
-    }, 1000);
+    }, 5000);
   }
 
   function toggleContent(id) {

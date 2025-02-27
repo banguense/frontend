@@ -61,7 +61,7 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
     console.log("uuid: " + uuid);
 
     const makefileCode = makefileEditor.getValue();
-    const requestData = {
+    const data = {
       uuid,
       makefile: makefileCode,
       accessKey: accessKey.trim(),
@@ -71,7 +71,7 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
     const makefileResponse = await fetch("/api/makefile", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(requestData),
+      body: JSON.stringify(data),
     });
 
     if (!makefileResponse.ok) throw new Error("Erro na execução do Makefile.");
@@ -84,6 +84,7 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
       output: result.output,
       status: result.status,
       elapsedTime: result.elapsedTime,
+      numberOfWorkers: data.numberOfWorkers,
       timestamp: new Date().toISOString(),
     });
     localStorage.setItem("results", JSON.stringify(storedResults));

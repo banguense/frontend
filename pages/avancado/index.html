@@ -19,9 +19,36 @@
 
         <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
             <h2 class="text-xl font-semibold mb-4">Instruções de Uso</h2>
-            <p class="text-gray-700">EM CONSTRUÇÃO</p>
+            <div class="text-gray-700 space-y-4">
+                <p>
+                    Utilize o campo <strong>Número de contêineres</strong> para definir quantos contêineres serão usados na execução do seu código.
+                </p>
+                <p>
+                    No campo <strong>Enviar arquivos</strong>, você pode selecionar os arquivos necessários para a execução do seu código. Clique em "Escolher arquivos" e selecione os arquivos desejados. O número de arquivos selecionados será exibido ao lado.
+                </p>
+                <p>
+                    A <strong>Chave de acesso</strong> é um código obrigatório que você deve inserir para acessar o serviço de execução de código. Ela será disponibilizada pelo professor.
+                </p>
+                <p>
+                    No editor de <strong>Makefile</strong>, você deve definir as instruções de compilação e execução do seu código. É obrigatório o uso da variável <code>HOSTS</code> na execução do MPI no Makefile para garantir que o código seja executado corretamente nos contêineres especificados. Essa variável será injetada no Makefile.
+                </p>
+                <p class="bg-gray-100 p-3 rounded">
+                    <strong>Exemplo de Makefile:</strong><br>
+                    Se você estiver compilando e executando um programa MPI, seu Makefile pode ser algo como:
+                    <br>
+                    <code>
+                        compile:<br>
+                        &nbsp;&nbsp;mpicc -o meuPrograma arquivo.c<br>
+                        <br>
+                        run:<br>
+                        &nbsp;&nbsp;mpirun $(HOSTS) -np 4 ./meuPrograma
+                    </code>
+                </p>
+                <p>
+                    Após preencher todos os campos, clique em <strong>Enviar</strong> para iniciar a execução do seu código.
+                </p>
+            </div>
         </div>
-
         <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
             <div class="flex flex-col gap-4">
                 <div class="flex items-center justify-between gap-4">
